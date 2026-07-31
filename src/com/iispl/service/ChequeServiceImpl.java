@@ -7,6 +7,7 @@ import java.util.List;
 import com.iispl.dao.ChequeDao;
 import com.iispl.dao.ChequeDaoOImpl;
 import com.iispl.enums.ChequeStatus;
+import com.iispl.exceptions.InvalidAmountException;
 import com.iispl.model.Cheque;
 import com.iispl.validations.AccountValidator;
 import com.iispl.validations.ChequeAmountValidator;
@@ -37,8 +38,13 @@ public class ChequeServiceImpl implements ChequeService {
 		chequeList.forEach(cheque -> {
 			
 			validationRules.forEach(rule -> {
-				if(!rule.validate(cheque)) {
-					
+				try {
+					if(!rule.validate(cheque)) {
+						
+					}
+				} catch (InvalidAmountException e) {
+					 
+					 System.out.println(e.getMessage());
 				}  
 			});
 			
