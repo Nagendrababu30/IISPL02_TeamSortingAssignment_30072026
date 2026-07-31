@@ -46,9 +46,7 @@ public class ChequeSortingApplication {
 	}
 
 	public static void sortByPresentedDate() {
-		List<Cheque> chequeList = chequeService.sortByPresentedDate();
-		System.out.println("ChequeNumber" + "\t" + "AccountNumber" + "\t" + "DrawerName"+ "\t"+"PresentingBank" + "\t"+ "ChequeAmount" + "\t"+"ChequeDate" + "\t"+ "PresentedDate" + "\t"+ "ChequePriority" + "\t"+"ChequeStatus"+ "\t"+ "StatusRemarks");
-		chequeList.forEach(System.out::println);
+		
 	}
 
 	public static void sortByBankAndAmount() {
@@ -61,7 +59,9 @@ public class ChequeSortingApplication {
 	}
 
 	public static void getHighValueCheque() {
-		
+		List<Cheque>chequeList = chequeService.getHighValueCheque();
+		System.out.println("ChequeNumber"+ "\t"+"AccountNumber"+ "\t"+ "DrawerName"+ "\t"+ "PresentingBank" + "\t"+ "ChequeAmount"+ "\t"+ "ChequeDate" + "\t"+"PresentedDate" + "\t"+ "ChequePriority"+ "\t"+ "ChequeStatus"+ "\t"+ "StatusRemarks");
+		chequeList.forEach(System.out::println);
 	}
 	
 }

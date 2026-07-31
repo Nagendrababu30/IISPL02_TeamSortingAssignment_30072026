@@ -2,6 +2,7 @@ package com.iispl.service;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.iispl.dao.ChequeDao;
@@ -84,10 +85,7 @@ public class ChequeServiceImpl implements ChequeService {
 	@Override
 	public List<Cheque> sortByPresentedDate() {
 		// TODO Auto-generated method stub
-		List<Cheque>chequeList= chequeDao.getAllCheques();
-		chequeList.sort((c1,c2)->
-			c1.getPresentedDate().compareTo(c2.getPresentedDate()));
-		return chequeList;
+		return null;
 	}
 
 	@Override
@@ -105,8 +103,14 @@ public class ChequeServiceImpl implements ChequeService {
 	@Override
 	public List<Cheque> getHighValueCheque() {
 		// TODO Auto-generated method stub
-		
-		return null;
+		List<Cheque>chequeList = chequeDao.getAllCheques();
+	    List<Cheque> highValueChequeList = new ArrayList<>();
+	       chequeList.forEach(cheque ->{
+	    	   if (cheque.getChequeAmount().compareTo(new BigDecimal("200000")) > 0) {
+		            highValueChequeList.add(cheque);
+		        }  
+	       }); 
+	    return highValueChequeList;
 	}
 
 }
