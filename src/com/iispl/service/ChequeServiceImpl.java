@@ -1,7 +1,10 @@
 package com.iispl.service;
 
+import java.math.BigDecimal;
+
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
 
 import com.iispl.dao.ChequeDao;
@@ -65,26 +68,31 @@ public class ChequeServiceImpl implements ChequeService {
 
 	@Override
 	public List<Cheque> sortByAmountAscending() {
-		// TODO Auto-generated method stub
-		return null;
+		return chequeDao.getAllCheques();
 	}
 
 	@Override
 	public List<Cheque> sortByAmountDescending() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Cheque> chequeList = chequeDao.getAllCheques();
+		Collections.sort(chequeList,(c1,c2)-> c2.getChequeAmount().compareTo(c1.getChequeAmount()));
+		
+		return chequeList;
 	}
 
 	@Override
 	public List<Cheque> sortByChequeDate() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Cheque> chequeList = chequeDao.getAllCheques();
+		Collections.sort(chequeList,(c1,c2)-> c1.getChequeDate().compareTo(c2.getChequeDate()));
+		return chequeList;
 	}
 
 	@Override
 	public List<Cheque> sortByPresentedDate() {
 		// TODO Auto-generated method stub
-		return null;
+		List<Cheque>chequeList= chequeDao.getAllCheques();
+		chequeList.sort((c1,c2)->
+			c1.getPresentedDate().compareTo(c2.getPresentedDate()));
+		return chequeList;
 	}
 
 	@Override
@@ -105,6 +113,7 @@ public class ChequeServiceImpl implements ChequeService {
 	@Override
 	public List<Cheque> getHighValueCheque() {
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
