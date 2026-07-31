@@ -31,11 +31,11 @@ public class ChequeSortingApplication {
 	}
 
 	public static void sortByChequeNumber() {
-		List<Cheque> chequeList=chequeService.sortByChequeNumber();
-		Collections.sort(chequeList);
+		List<Cheque> sortedChequeList=chequeService.sortByChequeNumber();
+		 
 		System.out.println("Cheque No\tAccount No\tDrawer Name\tPresenting Bank\t"
 				+ "Amount\tCheque Date\tPresented Date\tPriority\tStatus\tRemarks");
-		chequeList.forEach(System.out:: println);
+		sortedChequeList.forEach(System.out:: println);
 		
 	}
 
