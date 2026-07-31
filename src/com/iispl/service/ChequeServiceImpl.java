@@ -1,18 +1,16 @@
 package com.iispl.service;
 
 import java.math.BigDecimal;
-
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 import com.iispl.dao.ChequeDao;
 import com.iispl.dao.ChequeDaoOImpl;
-import com.iispl.enums.ChequeStatus;
 import com.iispl.exceptions.InvalidAmountException;
 import com.iispl.model.Cheque;
-import com.iispl.validations.AccountValidator;
+import com.iispl.validations.AccountNumberValidator;
 import com.iispl.validations.ChequeAmountValidator;
 import com.iispl.validations.ChequeNumberValidator;
 import com.iispl.validations.ChequeValidator;
@@ -27,7 +25,7 @@ public class ChequeServiceImpl implements ChequeService {
 	public ChequeServiceImpl() {
 
 		validationRules = new ArrayList<ChequeValidator>();
-		validationRules.add(new AccountValidator());
+		validationRules.add(new AccountNumberValidator());
 		validationRules.add(new ChequeAmountValidator());
 		validationRules.add(new ChequeNumberValidator());
 		validationRules.add(new DateValidator());
