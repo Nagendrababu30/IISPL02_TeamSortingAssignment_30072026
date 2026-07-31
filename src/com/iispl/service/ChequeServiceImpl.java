@@ -15,7 +15,7 @@ import com.iispl.validations.ChequeAmountValidator;
 import com.iispl.validations.ChequeNumberValidator;
 import com.iispl.validations.ChequeValidator;
 import com.iispl.validations.DateValidator;
-import com.iispl.validations.PriorityAndStatusValidator;
+import com.iispl.validations.PriorityValidator;
 
 public class ChequeServiceImpl implements ChequeService {
 
@@ -29,7 +29,7 @@ public class ChequeServiceImpl implements ChequeService {
 		validationRules.add(new ChequeAmountValidator());
 		validationRules.add(new ChequeNumberValidator());
 		validationRules.add(new DateValidator());
-		validationRules.add(new PriorityAndStatusValidator());
+		validationRules.add(new PriorityValidator());
 
 	}
 
