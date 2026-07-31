@@ -45,7 +45,20 @@ public class ChequeSortingApplication {
 	}
 
 	public static void sortByAmountDescending() {
-
+    
+		List<Cheque> chequeList = chequeService.sortByAmountDescending();
+		System.out.println("ChequeNumber" + "\t" +
+				"AccountNumber" + "\t" +
+				"DrawerName" + "\t" +
+				"PresentingBank" + "\t" +
+				"ChequeAmount" + "\t" +
+				"ChequeDate" + "\t" +
+				"PresentedDate" + "\t" +
+				"ChequePriority" + "\t" +
+				"ChequeStatus" + "\t" +
+				"StatusRemarks");
+		chequeList.forEach(System.out :: println);
+		
 	}
 
 	public static void sortByChequeDate() {
