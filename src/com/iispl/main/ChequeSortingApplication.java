@@ -97,6 +97,11 @@ public class ChequeSortingApplication {
 	}
 
 	public static void sortByPriorityAndStatus() {
+		
+		List<Cheque> chequeList =chequeService.sortByPriorityAndStatus();
+		for(Cheque cheque : chequeList) {
+			System.out.println(cheque);
+		}
 
 	}
 

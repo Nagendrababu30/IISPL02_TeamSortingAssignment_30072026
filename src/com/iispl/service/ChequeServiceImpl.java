@@ -1,10 +1,10 @@
 package com.iispl.service;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
 
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Collections;
 import java.util.List;
 
 import com.iispl.dao.ChequeDao;
@@ -103,8 +103,11 @@ public class ChequeServiceImpl implements ChequeService {
 
 	@Override
 	public List<Cheque> sortByPriorityAndStatus() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Cheque> chequeList = chequeDao.getAllCheques();
+
+		chequeList.sort(Comparator.comparing(Cheque::getChequePriority).thenComparing(Cheque::getChequeStatus));
+
+		return chequeList;
 	}
 
 	@Override

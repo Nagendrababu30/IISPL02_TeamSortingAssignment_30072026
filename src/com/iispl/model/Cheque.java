@@ -112,9 +112,6 @@ public class Cheque implements Comparable<Cheque>{
 		this.chequeStatus = chequeStatus;
 	}
 
-	 
-	 
-
 	public String getStatusRemarks() {
 		return statusRemarks;
 	}
@@ -122,11 +119,11 @@ public class Cheque implements Comparable<Cheque>{
 	public void setStatusRemarks(String statusRemarks) {
 		this.statusRemarks = statusRemarks;
 	}
+  
 	@Override
 	public int compareTo(Cheque o) {
 		 
 		return this.chequeNumber.compareTo(o.chequeNumber);
 	}
 
-	 
 }
