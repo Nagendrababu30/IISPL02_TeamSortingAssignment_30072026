@@ -3,6 +3,7 @@ package com.iispl.service;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+
 import java.util.List;
 
 import com.iispl.dao.ChequeDao;
@@ -49,8 +50,8 @@ public class ChequeServiceImpl implements ChequeService {
 	
 	@Override
 	public List<Cheque> getAllCheques() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return chequeDao.getAllCheques();
 	}
 
 	@Override
@@ -81,8 +82,9 @@ public class ChequeServiceImpl implements ChequeService {
 
 	@Override
 	public List<Cheque> sortByChequeDate() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Cheque> chequeList = chequeDao.getAllCheques();
+		Collections.sort(chequeList,(c1,c2)-> c1.getChequeDate().compareTo(c2.getChequeDate()));
+		return chequeList;
 	}
 
 	@Override
