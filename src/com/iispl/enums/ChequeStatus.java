@@ -6,7 +6,6 @@ public enum ChequeStatus {
 	VALIDATE,
 	ACCEPTED,
 	REJECTED,
-	SENT_FOR_CLEARING,
-	PENDING
+	SENT_FOR_CLEARING
 	
 }

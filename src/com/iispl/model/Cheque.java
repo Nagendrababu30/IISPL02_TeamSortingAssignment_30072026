@@ -17,11 +17,11 @@ public class Cheque {
 	private LocalDate presentedDate;
 	private ChequePriority chequePriority;
 	private ChequeStatus chequeStatus;
-	private String statusReason;
+	private String statusRemarks;
 
 	public Cheque(String chequeNumber, String accountNumber, String drawerName, String presentingBank,
 			BigDecimal chequeAmount, LocalDate chequeDate, LocalDate presentedDate, ChequePriority chequePriority,
-			ChequeStatus chequeStatus, String statusReason) {
+			ChequeStatus chequeStatus, String statusRemarks) {
 		this.chequeNumber = chequeNumber;
 		this.accountNumber = accountNumber;
 		this.drawerName = drawerName;
@@ -31,7 +31,7 @@ public class Cheque {
 		this.presentedDate = presentedDate;
 		this.chequePriority = chequePriority;
 		this.chequeStatus = chequeStatus;
-		this.statusReason = statusReason;
+		this.statusRemarks = statusRemarks;
 	}
 
 	public String getChequeNumber() {
@@ -106,12 +106,12 @@ public class Cheque {
 		this.chequeStatus = chequeStatus;
 	}
 
-	public String getStatusReason() {
-		return statusReason;
+	public String getStatusRemarks() {
+		return statusRemarks;
 	}
 
-	public void setStatusReason(String statusReason) {
-		this.statusReason = statusReason;
+	public void setStatusRemarks(String statusRemarks) {
+		this.statusRemarks = statusRemarks;
 	}
 
 }
