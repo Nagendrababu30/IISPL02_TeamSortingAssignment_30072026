@@ -1,22 +1,54 @@
 package com.iispl.service;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import com.iispl.dao.ChequeDao;
+import com.iispl.dao.ChequeDaoOImpl;
 import com.iispl.enums.ChequeStatus;
 import com.iispl.model.Cheque;
+import com.iispl.validations.AccountValidator;
+import com.iispl.validations.ChequeAmountValidator;
+import com.iispl.validations.ChequeNumberValidator;
+import com.iispl.validations.ChequeValidator;
+import com.iispl.validations.DateValidator;
+import com.iispl.validations.PriorityAndStatusValidator;
 
 public class ChequeServiceImpl implements ChequeService {
 
+	ChequeDao chequeDao = new ChequeDaoOImpl();
+	List<ChequeValidator> validationRules = null;
+	
+	
+	public ChequeServiceImpl() {
+		
+		validationRules = new ArrayList<ChequeValidator>();
+		validationRules.add(new AccountValidator());
+		validationRules.add(new ChequeAmountValidator());
+		validationRules.add(new ChequeNumberValidator());
+		validationRules.add(new DateValidator());
+		validationRules.add(new PriorityAndStatusValidator());
+		
+	}
+	
+	public void validateCheques(List<Cheque> chequeList) {
+		
+		chequeList.forEach(cheque -> {
+			
+			validationRules.forEach(rule -> {
+				if(!rule.validate(cheque)) {
+					
+				}  
+			});
+			
+		});
+		
+	}
+	
 	@Override
 	public List<Cheque> getAllCheques() {
 		// TODO Auto-generated method stub
 		return null;
-	}
-
-	@Override
-	public boolean isStatusUpdated(String chequeNumber, ChequeStatus status, String statusRemarks) {
-		// TODO Auto-generated method stub
-		return false;
 	}
 
 	@Override

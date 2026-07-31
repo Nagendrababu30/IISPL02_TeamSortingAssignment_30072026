@@ -5,7 +5,8 @@ import com.iispl.model.Cheque;
 public class PriorityAndStatusValidator implements ChequeValidator{
 
 	@Override
-	public void validate(Cheque cheque) {
+	public boolean validate(Cheque cheque) {
+		return false;
 		// TODO Auto-generated method stub
 		
 	}

@@ -14,15 +14,15 @@ public class ChequeDaoOImpl implements ChequeDao {
 	}
 
 	@Override
-	public boolean isStatusUpdated(String chequeNumber, ChequeStatus status, String statusRemarks) {
+	public boolean isChequeExists(Cheque cheque) {
 		// TODO Auto-generated method stub
 		return false;
 	}
 
 	@Override
-	public boolean isChequeExists(Cheque cheque) {
+	public void updateStatusAndRemarks(String chequeNumber, ChequeStatus status, String statusRemarks) {
 		// TODO Auto-generated method stub
-		return false;
+		
 	}
 
 }

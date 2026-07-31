@@ -8,8 +8,6 @@ import com.iispl.model.Cheque;
 public interface ChequeService {
 
 	public List<Cheque> getAllCheques();
-
-	public boolean isStatusUpdated(String chequeNumber, ChequeStatus status, String statusRemarks);
 	
 	public boolean isChequeExists(Cheque cheque);
 	

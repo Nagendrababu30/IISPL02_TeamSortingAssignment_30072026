@@ -9,7 +9,7 @@ public interface ChequeDao {
 
 	public List<Cheque> getAllCheques();
 
-	public boolean isStatusUpdated(String chequeNumber, ChequeStatus status, String statusRemarks);
+	public void updateStatusAndRemarks(String chequeNumber, ChequeStatus status, String statusRemarks);
 	
 	public boolean isChequeExists(Cheque cheque);
 	
