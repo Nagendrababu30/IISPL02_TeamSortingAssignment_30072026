@@ -8,6 +8,7 @@ import java.util.List;
 
 import com.iispl.dao.ChequeDao;
 import com.iispl.dao.ChequeDaoOImpl;
+import com.iispl.enums.ChequeStatus;
 import com.iispl.exceptions.InvalidAmountException;
 import com.iispl.model.Cheque;
 import com.iispl.validations.AccountNumberValidator;
@@ -15,6 +16,8 @@ import com.iispl.validations.ChequeAmountValidator;
 import com.iispl.validations.ChequeNumberValidator;
 import com.iispl.validations.ChequeValidator;
 import com.iispl.validations.DateValidator;
+import com.iispl.validations.DrawerNameValidator;
+import com.iispl.validations.PresentingBankValidator;
 import com.iispl.validations.PriorityValidator;
 
 public class ChequeServiceImpl implements ChequeService {
@@ -30,6 +33,10 @@ public class ChequeServiceImpl implements ChequeService {
 		validationRules.add(new ChequeNumberValidator());
 		validationRules.add(new DateValidator());
 		validationRules.add(new PriorityValidator());
+		validationRules.add(new DrawerNameValidator());
+		validationRules.add(new PresentingBankValidator());
+
+		
 
 	}
 
@@ -41,6 +48,28 @@ public class ChequeServiceImpl implements ChequeService {
         
 				try {
 					if(!rule.validate(cheque)) {
+						if(rule instanceof AccountNumberValidator) {
+							chequeDao.updateStatusAndRemarks(cheque.getChequeNumber(), ChequeStatus.REJECTED, "Account Number Cannot Be Blank");
+							
+						}else if(rule instanceof ChequeAmountValidator) {
+							chequeDao.updateStatusAndRemarks(cheque.getChequeNumber(), ChequeStatus.REJECTED, "Invalid Cheque Amount");
+
+						}else if(rule instanceof ChequeNumberValidator) {
+							chequeDao.updateStatusAndRemarks(cheque.getChequeNumber(), ChequeStatus.REJECTED, "Invalid Cheque Number");
+
+						}else if(rule instanceof DateValidator) {
+							chequeDao.updateStatusAndRemarks(cheque.getChequeNumber(), ChequeStatus.REJECTED,  "Presented Date Cannot Be Before Cheque Date");
+
+						}else if(rule instanceof PriorityValidator) {
+							chequeDao.updateStatusAndRemarks(cheque.getChequeNumber(), ChequeStatus.REJECTED, "Invalid Cheque Priority");
+
+						}else if(rule instanceof DrawerNameValidator) {
+							chequeDao.updateStatusAndRemarks(cheque.getChequeNumber(), ChequeStatus.REJECTED, "Drawer Name Cannot Be Empty");
+
+						}else if(rule instanceof PresentingBankValidator) {
+							chequeDao.updateStatusAndRemarks(cheque.getChequeNumber(), ChequeStatus.REJECTED, "Presenting Bank Name Cannot Be Empty");
+
+						}
 						
 					}
 				} catch (InvalidAmountException e) {
