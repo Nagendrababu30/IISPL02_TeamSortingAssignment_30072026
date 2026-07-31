@@ -1,6 +1,7 @@
 package com.iispl.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import com.iispl.dao.ChequeDao;
@@ -66,7 +67,9 @@ public class ChequeServiceImpl implements ChequeService {
 	@Override
 	public List<Cheque> sortByAmountAscending() {
 		// TODO Auto-generated method stub
-		return chequeDao.getAllCheques();
+		List<Cheque> chequeList =chequeDao.getAllCheques();
+		Collections.sort(chequeList,(o1,o2) -> o1.getChequeAmount().compareTo(o2.getChequeAmount()));
+		return chequeList;
 	}
 
 	@Override
