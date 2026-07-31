@@ -8,9 +8,9 @@ import com.iispl.model.Cheque;
 public class ChequeAmountValidator implements ChequeValidator{
 
 	@Override
-	public boolean validate(Cheque cheque) throws InvalidAmountException {
+	public boolean validate(Cheque cheque) throws InvalidAmountException{
 		if(cheque.getChequeAmount().compareTo(BigDecimal.ZERO) < 0 || cheque.getChequeAmount().compareTo(BigDecimal.ZERO) == 0  ) {
-			 throw new InvalidAmountException();
+			 return false;
 		}
 		return true;
 	 
