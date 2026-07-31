@@ -6,8 +6,9 @@ public class ChequeNumberValidator implements ChequeValidator{
 
 	@Override
 	public boolean validate(Cheque cheque) {
-		return false;
-		
+		if(!cheque.getChequeNumber().startsWith("CHQ"))
+		  return false;
+		return true;
 		
 	}
 
