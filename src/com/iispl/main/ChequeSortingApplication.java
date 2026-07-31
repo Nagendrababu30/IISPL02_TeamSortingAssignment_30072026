@@ -1,5 +1,8 @@
 package com.iispl.main;
 
+import java.util.Collections;
+import java.util.List;
+
 import com.iispl.enums.ChequeStatus;
 import com.iispl.model.Cheque;
 import com.iispl.service.ChequeService;
@@ -32,7 +35,11 @@ public class ChequeSortingApplication {
 	}
 
 	public static void sortByAmountAscending() {
-		
+	List<Cheque> chequeList=	chequeService.sortByAmountAscending();
+	Collections.sort(chequeList,(o1,o2) -> o1.getChequeAmount().compareTo(o2.getChequeAmount()));
+	System.out.println("Cheque No\tAccount No\tDrawer Name\tPresenting Bank\tAmount"
+			+ "\tCheque Date\tPresented Date\tPriority\tStatus\tRemarks");	
+	chequeList.forEach(System.out::println);
 	}
 
 	public static void sortByAmountDescending() {

@@ -66,7 +66,7 @@ public class ChequeServiceImpl implements ChequeService {
 	@Override
 	public List<Cheque> sortByAmountAscending() {
 		// TODO Auto-generated method stub
-		return null;
+		return chequeDao.getAllCheques();
 	}
 
 	@Override
