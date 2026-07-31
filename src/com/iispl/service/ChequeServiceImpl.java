@@ -104,10 +104,9 @@ public class ChequeServiceImpl implements ChequeService {
 	@Override
 	public List<Cheque> sortByPriorityAndStatus() {
 		List<Cheque> chequeList = chequeDao.getAllCheques();
-
 		chequeList.sort(Comparator.comparing(Cheque::getChequePriority).thenComparing(Cheque::getChequeStatus));
-
 		return chequeList;
+
 	}
 
 	@Override
