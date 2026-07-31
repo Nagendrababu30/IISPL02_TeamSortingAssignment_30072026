@@ -6,8 +6,10 @@ public class PriorityAndStatusValidator implements ChequeValidator{
 
 	@Override
 	public boolean validate(Cheque cheque) {
-		return false;
-		// TODO Auto-generated method stub
+		if(cheque.getPresentedDate().isBefore(cheque.getChequeDate())) {
+			return false;
+		}
+		return true;
 		
 	}
 
