@@ -51,7 +51,6 @@ public class ChequeSortingApplication {
 	public static void sortByAmountAscending() {
     
 	List<Cheque> chequeList=	chequeService.sortByAmountAscending();
-	Collections.sort(chequeList,(o1,o2) -> o1.getChequeAmount().compareTo(o2.getChequeAmount()));
 	System.out.println("Cheque No\tAccount No\tDrawer Name\tPresenting Bank\tAmount"
 			+ "\tCheque Date\tPresented Date\tPriority\tStatus\tRemarks");	
 	chequeList.forEach(System.out::println);
