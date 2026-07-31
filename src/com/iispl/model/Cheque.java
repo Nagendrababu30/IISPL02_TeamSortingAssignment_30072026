@@ -113,5 +113,5 @@ public class Cheque {
 	public void setStatusRemarks(String statusRemarks) {
 		this.statusRemarks = statusRemarks;
 	}
-
+	
 }

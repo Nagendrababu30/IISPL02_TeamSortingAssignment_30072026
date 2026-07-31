@@ -1,5 +1,6 @@
 package com.iispl.main;
 
+import java.security.Provider.Service;
 import java.util.List;
 
 import com.iispl.enums.ChequeStatus;
@@ -62,6 +63,11 @@ public class ChequeSortingApplication {
 
 	
 	public static void sortByPriorityAndStatus() {
+		
+		List<Cheque> chequeList =chequeService.sortByPriorityAndStatus();
+		for(Cheque cheque : chequeList) {
+			System.out.println(cheque);
+		}
 		
 	}
 
