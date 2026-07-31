@@ -1,6 +1,5 @@
 package com.iispl.main;
 
-
 import java.util.Collections;
 import java.util.List;
 
@@ -39,7 +38,14 @@ public class ChequeSortingApplication {
 	}
 
 	public static void sortByChequeNumber() {
-
+    
+		List<Cheque> chequeList=chequeService.sortByChequeNumber();
+		Collections.sort(chequeList);
+		System.out.println("Cheque No\tAccount No\tDrawer Name\tPresenting Bank\t"
+				+ "Amount\tCheque Date\tPresented Date\tPriority\tStatus\tRemarks");
+		chequeList.forEach(System.out:: println);
+    
+		
 	}
 
 	public static void sortByAmountAscending() {
