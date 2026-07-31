@@ -58,6 +58,10 @@ public class ChequeSortingApplication {
 	}
 
 	public static void sortByBankAndAmount() {
+		List<Cheque> chequeList =chequeService.sortByBankAndAmount();
+		for(Cheque cheque : chequeList) {
+			System.out.println(cheque);
+		}
 		
 	}
 
