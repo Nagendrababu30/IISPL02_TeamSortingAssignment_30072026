@@ -91,7 +91,7 @@ public class ChequeServiceImpl implements ChequeService {
 
 		List<Cheque> chequeList = chequeDao.getAllCheques();
 
-		chequeList.sort(Comparator.comparing(Cheque::getPresentingBank).thenComparing(Cheque::getChequeAmount));
+		chequeList.sort(Comparator.comparing(Cheque::getPresentingBank).thenComparing(Cheque::getChequeAmount, Comparator.reverseOrder()));
 
 		return chequeList;
 	}
