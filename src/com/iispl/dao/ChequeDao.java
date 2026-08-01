@@ -11,6 +11,6 @@ public interface ChequeDao {
 
 	public void updateStatusAndRemarks(String chequeNumber, ChequeStatus status, String statusRemarks);
 	
-	public boolean isChequeExists(Cheque cheque);
+
 	
 }

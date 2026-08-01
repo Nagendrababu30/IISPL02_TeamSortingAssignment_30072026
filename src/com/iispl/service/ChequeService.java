@@ -9,8 +9,6 @@ public interface ChequeService {
 
 	public List<Cheque> getAllCheques();
 	
-	public boolean isChequeExists(Cheque cheque);
-	
 	public List<Cheque> sortByChequeNumber();
 	
 	public List<Cheque> sortByAmountAscending();
