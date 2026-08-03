@@ -29,7 +29,6 @@ public class ChequeDaoImpl implements ChequeDao {
 
             while (rs.next()) {
 
-            	while (rs.next()) {
 
             	    chequeList.add(
             	        new Cheque(
@@ -45,7 +44,6 @@ public class ChequeDaoImpl implements ChequeDao {
             	            rs.getString("status_remarks")
             	        )
             	    );
-            	}
             }
 
         } catch (Exception e) {
