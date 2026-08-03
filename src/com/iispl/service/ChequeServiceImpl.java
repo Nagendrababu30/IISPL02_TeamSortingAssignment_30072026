@@ -21,7 +21,6 @@ import com.iispl.validations.ChequeValidator;
 import com.iispl.validations.DateValidator;
 import com.iispl.validations.DrawerNameValidator;
 import com.iispl.validations.PresentingBankValidator;
-import com.iispl.validations.PriorityValidator;
 
 public class ChequeServiceImpl implements ChequeService {
 
@@ -35,7 +34,6 @@ public class ChequeServiceImpl implements ChequeService {
 		validationRules.add(new ChequeAmountValidator());
 		validationRules.add(new ChequeNumberValidator());
 		validationRules.add(new DateValidator());
-		validationRules.add(new PriorityValidator());
 		validationRules.add(new DrawerNameValidator());
 		validationRules.add(new PresentingBankValidator());
 
@@ -76,11 +74,6 @@ public class ChequeServiceImpl implements ChequeService {
 
 							chequeDao.updateStatusAndRemarks(cheque.getChequeNumber(), ChequeStatus.REJECTED,
 									"Presented Date Cannot Be Before Cheque Date");
-
-						} else if (rule instanceof PriorityValidator) {
-
-							chequeDao.updateStatusAndRemarks(cheque.getChequeNumber(), ChequeStatus.REJECTED,
-									"Invalid Cheque Priority");
 
 						} else if (rule instanceof DrawerNameValidator) {
 
