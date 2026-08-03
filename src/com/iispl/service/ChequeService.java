@@ -25,4 +25,6 @@ public interface ChequeService {
 	
 	public List<Cheque> getHighValueCheque();
 	
+	public List<Cheque> sortByClearingZoneAndAmount();
+	
 }

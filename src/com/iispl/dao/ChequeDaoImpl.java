@@ -41,7 +41,8 @@ public class ChequeDaoImpl implements ChequeDao {
             	            rs.getDate("presented_date").toLocalDate(),
             	            ChequePriority.valueOf(rs.getString("cheque_priority")),
             	            ChequeStatus.valueOf(rs.getString("cheque_status")),
-            	            rs.getString("status_remarks")
+            	            rs.getString("status_remarks"),
+            	            rs.getString("clearing_zone")
             	        )
             	    );
             }
