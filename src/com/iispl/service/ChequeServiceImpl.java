@@ -192,8 +192,16 @@ public class ChequeServiceImpl implements ChequeService {
 
 	@Override
 	public List<Cheque> sortByClearingZoneAndAmount() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Cheque> chequeList=chequeDao.getAllCheques();
+		chequeList.sort((c1,c2)->{
+			int result=c1.getClearingZone().compareTo(c2.getClearingZone());
+			if(result==0) {
+				return c2.getChequeAmount().compareTo(c1.getChequeAmount());
+			}
+			return result;
+		});
+		
+		return chequeList;
 	}
 
 }
