@@ -171,7 +171,12 @@ public class ChequeSortingApplication {
 	}
 	
 	private static void sortByClearingZoneAndAmount() {
-		
+		 
+		List<Cheque> sortedChequeList=chequeService.sortByClearingZoneAndAmount();
+		System.out.println("ChequeNumber" + "\t" + "AccountNumber" + "\t" + "DrawerName"+ "\t"+"PresentingBank" + "\t"+ "ChequeAmount" + "\t"+"ChequeDate" + "\t"+ "PresentedDate" + "\t"+ "ChequePriority" + "\t"+"ChequeStatus"+ "\t"+ "StatusRemarks"
+				+ "\tClearing Zone");
+		sortedChequeList.forEach(System.out :: println);
+	   
 	}
 
 }
