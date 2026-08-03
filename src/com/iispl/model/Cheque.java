@@ -6,7 +6,7 @@ import java.time.LocalDate;
 import com.iispl.enums.ChequePriority;
 import com.iispl.enums.ChequeStatus;
 
-public class Cheque implements Comparable<Cheque>{
+public class Cheque implements Comparable<Cheque> {
 
 	private String chequeNumber;
 	private String accountNumber;
@@ -18,16 +18,18 @@ public class Cheque implements Comparable<Cheque>{
 	private ChequePriority chequePriority;
 	private ChequeStatus chequeStatus;
 	private String statusRemarks;
+	private String clearingZone;
 
 	@Override
 	public String toString() {
 		return chequeNumber + "    " + accountNumber + "    " + drawerName + "    " + presentingBank + "    "
 				+ chequeAmount + "    " + chequeDate + "    " + presentedDate + "    " + chequePriority + "    "
-				+ chequeStatus + "    " + statusRemarks;
+				+ chequeStatus + "    " + statusRemarks + "    " + clearingZone;
 	}
+
 	public Cheque(String chequeNumber, String accountNumber, String drawerName, String presentingBank,
 			BigDecimal chequeAmount, LocalDate chequeDate, LocalDate presentedDate, ChequePriority chequePriority,
-			ChequeStatus chequeStatus, String statusRemarks) {
+			ChequeStatus chequeStatus, String statusRemarks, String clearingZone) {
 		this.chequeNumber = chequeNumber;
 		this.accountNumber = accountNumber;
 		this.drawerName = drawerName;
@@ -38,6 +40,7 @@ public class Cheque implements Comparable<Cheque>{
 		this.chequePriority = chequePriority;
 		this.chequeStatus = chequeStatus;
 		this.statusRemarks = statusRemarks;
+		this.clearingZone = clearingZone;
 	}
 
 	public String getChequeNumber() {
@@ -119,10 +122,18 @@ public class Cheque implements Comparable<Cheque>{
 	public void setStatusRemarks(String statusRemarks) {
 		this.statusRemarks = statusRemarks;
 	}
-  
+
+	public String getClearingZone() {
+		return clearingZone;
+	}
+
+	public void setClearingZone(String clearingZone) {
+		this.clearingZone = clearingZone;
+	}
+
 	@Override
 	public int compareTo(Cheque o) {
-		 
+
 		return this.chequeNumber.compareTo(o.chequeNumber);
 	}
 
