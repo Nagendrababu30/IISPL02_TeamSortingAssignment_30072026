@@ -22,9 +22,20 @@ public class Cheque implements Comparable<Cheque> {
 
 	@Override
 	public String toString() {
-		return chequeNumber + "    " + accountNumber + "    " + drawerName + "    " + presentingBank + "    "
-				+ chequeAmount + "    " + chequeDate + "    " + presentedDate + "    " + chequePriority + "    "
-				+ chequeStatus + "    " + statusRemarks + "    " + clearingZone;
+		return String.format(
+		        "%-12s %-15s %-20s %-20s %-12.2f %-15s %-15s %-10s %-10s %-20s %-15s",
+		        chequeNumber,
+		        accountNumber,
+		        drawerName,
+		        presentingBank,
+		        chequeAmount,
+		        chequeDate,
+		        presentedDate,
+		        chequePriority,
+		        chequeStatus,
+		        statusRemarks,
+		        clearingZone
+		    );
 	}
 
 	public Cheque(String chequeNumber, String accountNumber, String drawerName, String presentingBank,
