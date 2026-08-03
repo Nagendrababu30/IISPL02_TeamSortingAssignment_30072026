@@ -18,6 +18,7 @@ import com.iispl.validations.AccountNumberValidator;
 import com.iispl.validations.ChequeAmountValidator;
 import com.iispl.validations.ChequeNumberValidator;
 import com.iispl.validations.ChequeValidator;
+import com.iispl.validations.ClearingZoneValidator;
 import com.iispl.validations.DateValidator;
 import com.iispl.validations.DrawerNameValidator;
 import com.iispl.validations.PresentingBankValidator;
@@ -34,6 +35,7 @@ public class ChequeServiceImpl implements ChequeService {
 		validationRules.add(new ChequeAmountValidator());
 		validationRules.add(new ChequeNumberValidator());
 		validationRules.add(new DateValidator());
+		validationRules.add(new ClearingZoneValidator());
 		validationRules.add(new DrawerNameValidator());
 		validationRules.add(new PresentingBankValidator());
 
@@ -80,7 +82,12 @@ public class ChequeServiceImpl implements ChequeService {
 							chequeDao.updateStatusAndRemarks(cheque.getChequeNumber(), ChequeStatus.REJECTED,
 									"Drawer Name Cannot Be Empty");
 
-						} else if (rule instanceof PresentingBankValidator) {
+						} else if (rule instanceof ClearingZoneValidator) {
+
+							chequeDao.updateStatusAndRemarks(cheque.getChequeNumber(), ChequeStatus.REJECTED,
+									"Invalid Clearing Zone");
+
+						}  else if (rule instanceof PresentingBankValidator) {
 
 							chequeDao.updateStatusAndRemarks(cheque.getChequeNumber(), ChequeStatus.REJECTED,
 									"Presenting Bank Name Cannot Be Empty");
