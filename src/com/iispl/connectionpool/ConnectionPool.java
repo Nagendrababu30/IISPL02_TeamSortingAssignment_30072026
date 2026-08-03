@@ -29,14 +29,10 @@ public class ConnectionPool {
 			dataSource.setUser(properties.getProperty("USER_NAME"));
 			dataSource.setPassword(properties.getProperty("PASSWORD"));
 			
-			dataSource.setInitialPoolSize(1);
-			dataSource.setMinPoolSize(1);
-			dataSource.setAcquireIncrement(1);
-			dataSource.setMaxPoolSize(2);
-
-			dataSource.setCheckoutTimeout(5000);
-			dataSource.setIdleConnectionTestPeriod(300);
-			dataSource.setTestConnectionOnCheckout(true);
+			dataSource.setInitialPoolSize(5);
+			dataSource.setMinPoolSize(5);
+			dataSource.setAcquireIncrement(5);
+			dataSource.setMaxPoolSize(20);
 			
 		} catch (IOException | PropertyVetoException ex) {
 			ex.printStackTrace();
