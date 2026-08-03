@@ -39,7 +39,8 @@ public class ChequeSortingApplication {
 					+ "7. Sort by Priority and Status\r\n"
 					+ "8. Display High Value Cheques\r\n"
 					+ "9. Sort by Presented date\r\n"
-					+ "10. Exit");
+					+ "10. Sort by clearing zone and amount\r\n"
+					+ "11. Exit");
 			
 			System.out.print("Enter your choice ");
 			int choice=scanner.nextInt();
@@ -65,6 +66,8 @@ public class ChequeSortingApplication {
 				}case 9->{
 					sortByPresentedDate();
 				}case 10->{
+					sortByClearingZoneAndAmount();
+				}case 11->{
 					return;
 				}default ->{
 					System.out.println("Choose the Correct Option");
