@@ -1,5 +1,4 @@
 package com.iispl.validations;
-
 import com.iispl.exceptions.InvalidAmountException;
 import com.iispl.model.Cheque;
 
